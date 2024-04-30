@@ -1,0 +1,20 @@
+.card{
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.spacing{   
+    padding-left: 150px;
+    padding-right: 150px;
+}
+.card h2{
+    color: rgb(192, 192, 192);
+}
+
+.card p{
+    color: white;
+    font-size: 14px;
+}

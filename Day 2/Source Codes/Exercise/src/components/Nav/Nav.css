@@ -1,0 +1,22 @@
+ul{
+    background-color: rgba(0, 0, 0, 0.307);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 100px;
+    list-style: none;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    color: white;
+    
+}
+
+button{
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    height: 35px;
+    font-weight: bold;
+}
