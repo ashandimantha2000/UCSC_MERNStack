@@ -1,4 +1,3 @@
-import Cards from "../Cards/Cards";
 import "./Home.css";
 
 function Home() {
@@ -11,16 +10,7 @@ function Home() {
         <br />
         <button>Download My CV</button>
       </div>
-      <div>
-        <h1 className="title">Projects</h1>
-        <div className="card-main">
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
-        </div>
-      </div>
+      
     </div>
   );
 }

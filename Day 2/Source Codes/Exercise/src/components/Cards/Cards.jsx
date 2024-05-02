@@ -1,13 +1,18 @@
-import './Cards.css'
+import "./Cards.css";
 
-function Cards() {
+function Cards(props) {
   return (
-    <div className='spacing'>
+    <div>
       <div className="card">
-        <h2>Title</h2>
+        <h2>{props.title}</h2>
         <br />
         <hr />
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ab quos accusamus exercitationem obcaecati nisi corporis aperiam beatae culpa excepturi. </p>
+        <br />
+        <p>{props.description}</p>
+        <br />
+        <a href={props.link} target="_blank">
+          <button>Open</button>
+        </a>
       </div>
     </div>
   );
