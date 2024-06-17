@@ -6,6 +6,7 @@ connectDB(process.env.MONGODB_URL);
 const productRoute = require("./routes/productRoutes");
 const messageRoute = require("./routes/messageRoutes");
 const registerRoute = require("./routes/register.router");
+const loginRoute = require("./routes/login.routes");
 
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(cors());
 app.use("/products", productRoute);
 app.use("/messages", messageRoute);
 app.use("/register", registerRoute);
+app.use("/login", loginRoute);
 
 
 
