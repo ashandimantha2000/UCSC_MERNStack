@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 
-const Registration = () => {
+export default function Login_Without_JWT() {
     const [formData, setFormData] = useState({
-        name: '',
         email: '',
-        password: '',
-        age: ''
+        password: ''
     });
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -24,24 +22,20 @@ const Registration = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3000/register', formData);
-            console.log('Registration successful');
-            setError('');  // Reset error on success
-            navigate('/login');  // Redirect to login page
+            const response = await axios.post('http://localhost:3000/login', formData);
+            console.log('Login successful', response.data);
+            setError('');
+            navigate('/some-default-route');  // Navigate to a default route after successful login
         } catch (err) {
-            console.error('Registration failed', err.response.data);
-            setError(err.response.data.message);  // Set error message
+            console.error('Login failed', err.response ? err.response.data.message : err);
+            setError(err.response ? err.response.data.message : 'An error occurred');
         }
     };
 
     return (
         <div>
-            <h2>Registration</h2>
+            <h2>Login</h2>
             <form onSubmit={handleSubmit}>
-                <label>
-                    Name:
-                    <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-                </label><br />
                 <label>
                     Email:
                     <input type="email" name="email" value={formData.email} onChange={handleChange} required />
@@ -50,15 +44,9 @@ const Registration = () => {
                     Password:
                     <input type="password" name="password" value={formData.password} onChange={handleChange} required />
                 </label><br />
-                <label>
-                    Age:
-                    <input type="number" name="age" value={formData.age} onChange={handleChange} required />
-                </label><br />
-                <button type="submit">Register</button>
+                <button type="submit">Login</button>
             </form>
             {error && <p style={{ color: 'red' }}>{error}</p>}
         </div>
     );
-};
-
-export default Registration;
+}
